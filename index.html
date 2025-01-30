@@ -1,44 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Star Wars</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css"
+      crossorigin=""
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link href="css/grid.css" rel="stylesheet" />
-    <link href="css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/grid.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"
+    ></script>
     <script defer src="js/main.js"></script>
   </head>
   <body>
-    <div class="grid-con">
-      <section class="col-span-full m-col-span-6">
-        <h2>Characters</h2>
-        <div id="character-box"></div>
+    <header>
+      <div id="particles"></div>
+      <div class="info-text">
+        <h1>Star<br />Wars</h1>
+        <h3 class="intro">Powered By Sheldon Gohetia and Carlos Cano</h3>
+        <a href="#starwars" class="scroll"><i class="bx bxs-down-arrow"></i></a>
+      </div>
+    </header>
+    <div class="grid-con" id="starwars">
+      <section class="col-span-full m-col-span-4" id="char-preview">
+        <h2>Preview</h2>
+        <div class="img-holder"></div>
       </section>
-      <section class="col-span-full m-col-span-6">
-        <h2>Information</h2>
-        <div id="details-con"></div>
-        <template id="details-template">
-          <section>
-            <h3 class="details-name"></h3>
-            <p class="details-gender"></p>
-            <p class="details-birth"></p>
-            <h4>Movies:</h4>
-            <ul class="details-films"></ul>
-          </section>
+      <section class="col-span-full m-col-span-3" id="char-select-box">
+        <h2>Characters</h2>
+      </section>
+      <section class="col-span-full m-col-span-5" id="movie-details-box">
+        <h2>Character Movie Details</h2>
+        <section id="movie-con">
+          <h3 class="instruction">Select character to view details</h3>
+        </section>
+        <template id="movie-template">
+          <div id="info-box">
+            <h3 class="movie-title"></h3>
+            <div class="movie-info">
+              <img src="images/" alt="" class="poster-img" />
+              <p class="opening-crawl"></p>
+            </div>
+          </div>
         </template>
-        <template id="film-template">
-          <section>
-            <h3 class="film-title"></h3>
-            <p class="film-director"></p>
-            <p class="film-release"></p>
-          </section>
-        </template>
+      </section>
+      <section class="col-span-full m-col-span-5 l-col-span-12" id="howtoWatch">
+        <h2 class="howto">How to watch Star Wars?</h2>
+        <div><img src="images/order.png" alt="" class="poster-img" /></div>
       </section>
     </div>
   </body>

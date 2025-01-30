@@ -1,0 +1,19 @@
+@use "../abstract/variables" as a;
+
+body {
+  font-family: a.$body-font-family;
+}
+
+h2 {
+  font-family: a.$body-font-family;
+  font-size: 26px;
+  color: a.$body-text-color;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: white;
+}
+p {
+  line-height: 24px;
+}
