@@ -1,0 +1,4 @@
+@use "mixins" as a;
+
+@include a.fontFace(robotoregular, "../fonts/Roboto-Regular");
+@include a.fontFace(jedifont, "../fonts/starjedi");
