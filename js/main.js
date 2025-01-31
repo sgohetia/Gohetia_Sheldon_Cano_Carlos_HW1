@@ -296,32 +296,32 @@
     {
       title: "Activation Lever",
       text: "A switch or mechanism that ignites and deactivates the lightsaber blade.",
-      image: "images/ar-img.png",
+      image: "images/ar-img/ar-img1.png",
     },
     {
       title: "Blade Length Adjust",
       text: "A control that modifies the length of the lightsaber blade for versatility in combat.",
-      image: "images/ar-img.png",
+      image: "images/ar-img/ar-img2.png",
     },
     {
       title: "Blade Intensity Adjust",
       text: "A dial or setting that regulates the brightness and energy output of the blade.",
-      image: "images/ar-img.png",
+      image: "images/ar-img/ar-img3.png",
     },
     {
       title: "Power Cell/Handrip",
       text: "The main power source of the lightsaber, housed within the hilt for stable energy flow.",
-      image: "images/ar-img.png",
+      image: "images/ar-img/ar-img4.png",
     },
     {
       title: "Recharge Socket",
       text: "A port that allows the lightsaber’s power cell to be recharged when depleted.",
-      image: "images/ar-img.png",
+      image: "images/ar-img/ar-img6.png",
     },
     {
       title: "Blade Emitter Shroud",
       text: "A protective covering around the emitter that helps direct and stabilize the blade's energy.",
-      image: "images/ar-img.png",
+      image: "images/ar-img/ar-img7.png",
     },
   ];
 
