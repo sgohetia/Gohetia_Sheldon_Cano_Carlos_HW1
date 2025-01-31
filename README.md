@@ -1,4 +1,4 @@
-# Gohetia_Cano_AJAX-REDUX
+# Gohetia_Sheldon_Cano_Carlos
 
 ![starwars](images/readme-img.jpg)
 
