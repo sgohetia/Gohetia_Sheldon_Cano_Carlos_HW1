@@ -289,4 +289,91 @@
     duration: 2,
     ease: "power2.out",
   });
+
+  //3D MODEL scripts for hotspot
+  const hotspots = document.querySelectorAll(".Hotspot");
+  const infoboxes = [
+    {
+      title: "Activation Lever",
+      text: "A switch or mechanism that ignites and deactivates the lightsaber blade.",
+      image: "images/ar-img.png",
+    },
+    {
+      title: "Blade Length Adjust",
+      text: "A control that modifies the length of the lightsaber blade for versatility in combat.",
+      image: "images/ar-img.png",
+    },
+    {
+      title: "Blade Intensity Adjust",
+      text: "A dial or setting that regulates the brightness and energy output of the blade.",
+      image: "images/ar-img.png",
+    },
+    {
+      title: "Power Cell/Handrip",
+      text: "The main power source of the lightsaber, housed within the hilt for stable energy flow.",
+      image: "images/ar-img.png",
+    },
+    {
+      title: "Recharge Socket",
+      text: "A port that allows the lightsaber’s power cell to be recharged when depleted.",
+      image: "images/ar-img.png",
+    },
+    {
+      title: "Blade Emitter Shroud",
+      text: "A protective covering around the emitter that helps direct and stabilize the blade's energy.",
+      image: "images/ar-img.png",
+    },
+  ];
+
+  // This function will Load the data from my array to display in the html/DOM
+  function loadInfo() {
+    hotspots.forEach((hotspot, index) => {
+      const infobox = infoboxes[index];
+      const annotation = hotspot.querySelector(".HotspotAnnotation");
+
+      if (infobox) {
+        annotation.innerHTML = "";
+
+        const imgElement = document.createElement("img");
+        imgElement.src = infobox.image;
+        imgElement.alt = infobox.title;
+        imgElement.style.width = "130px";
+        imgElement.style.height = "auto";
+        annotation.appendChild(imgElement);
+
+        const titleElement = document.createElement("h2");
+        titleElement.textContent = infobox.title;
+        annotation.appendChild(titleElement);
+
+        const textElement = document.createElement("p");
+        textElement.textContent = infobox.text;
+        annotation.appendChild(textElement);
+
+        annotation.style.display = "none";
+      }
+    });
+  }
+  // This function will show and hide my hotspot
+  function showInfo() {
+    const annotation = this.querySelector(".HotspotAnnotation");
+    annotation.style.display = "block";
+    gsap.to(annotation, { autoAlpha: 1, duration: 1 });
+  }
+
+  function hideInfo() {
+    const annotation = this.querySelector(".HotspotAnnotation");
+    gsap.to(annotation, {
+      autoAlpha: 0,
+      duration: 1,
+      onComplete: () => (annotation.style.display = "none"),
+    });
+  }
+
+  loadInfo();
+
+  // This is my event handler
+  hotspots.forEach((hotspot) => {
+    hotspot.addEventListener("mouseenter", showInfo);
+    hotspot.addEventListener("mouseleave", hideInfo);
+  });
 })();
