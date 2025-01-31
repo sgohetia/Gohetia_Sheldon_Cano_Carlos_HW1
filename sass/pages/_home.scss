@@ -1,5 +1,10 @@
 @use "../abstract/variables" as a;
 
+.spinner {
+  height: 440px;
+  background: url(../images/spinner.svg) center no-repeat;
+}
+
 .grid-con {
   background-color: rgba(0, 0, 0, 0.5);
   padding-left: 72px;
@@ -28,7 +33,7 @@ span {
   font-weight: bold;
 }
 
-#char-select-box {
+#char-avatar {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
@@ -48,8 +53,8 @@ span {
   background-color: #fff;
   width: 80px;
   height: 80px;
-  border: solid 4px #fa2206;
-  border-radius: 8px;
+  border: solid 2px #178302;
+  border-radius: 2px;
   box-shadow: #fad506;
   transition: transform 0.3s ease, border-color 0.3s ease;
 
@@ -62,7 +67,7 @@ span {
 
 .character:hover {
   cursor: pointer;
-  border-color: #fad506;
+  border-color: #fa2206;
   transform: scale(1.1);
 }
 
@@ -71,7 +76,7 @@ span {
   border-radius: 8px;
 }
 
-#char-preview {
+#preview-char {
   text-align: center;
   h2 {
     font-family: a.$hero-heading;
@@ -102,8 +107,8 @@ span {
   background-color: rgba(22, 26, 29, 0.6);
   margin-top: 60px;
   padding: 30px;
-  border: solid 3px #fa2206;
-  border-radius: 25px;
+  border: solid 3px #178302;
+  border-radius: 15px;
 
   p {
     font-size: 15px;

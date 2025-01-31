@@ -1,16 +1,34 @@
 (() => {
-  const charBox = document.querySelector("#char-select-box");
-  const movieTemplate = document.querySelector("#movie-template");
-  const movieCon = document.querySelector("#movie-con");
-  const charPreview = document.querySelector("#char-preview");
-  let charPreviewOn = false;
+  // Added here our Scroll to section script
+  gsap.registerPlugin(ScrollToPlugin);
+
+  const navlinks = document.querySelectorAll("#main-header a");
+  function scrollLink(e) {
+    e.preventDefault();
+    let selectedLink = e.currentTarget.hash;
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: { y: `${selectedLink}` },
+    });
+  }
+
+  navlinks.forEach((link) => {
+    link.addEventListener("click", scrollLink);
+  });
+
+  // Added here our API fetching scripts
+  const charAvatar = document.querySelector("#char-avatar");
+  const movieContainer = document.querySelector("#movie-container");
+  const movieBox = document.querySelector("#movie-box");
+  const previewChar = document.querySelector("#preview-char");
+  let previewCharOn = false;
 
   let tl = gsap.timeline();
 
   const baseUrl = `https://swapi.dev/api/`;
 
   function getCharacters() {
-    charBox.classList.add("spinner");
+    charAvatar.classList.add("spinner");
 
     // Fetch characters from page 1
     fetch(`${baseUrl}/people`)
@@ -40,13 +58,13 @@
           a.dataset.charNumber = index;
           div.appendChild(a);
           div.classList.add("character");
-          charBox.appendChild(div);
+          charAvatar.appendChild(div);
         });
 
         // Fetch characters 11 and 12 (instead of page 2)
         return Promise.all([
           fetch(`${baseUrl}/people/11/`),
-          fetch(`${baseUrl}/people/14/`),
+          fetch(`${baseUrl}/people/44/`),
         ]);
       })
       .then(([response11, response12]) =>
@@ -74,7 +92,7 @@
         a11.dataset.charNumber = 10;
         div11.appendChild(a11);
         div11.classList.add("character");
-        charBox.appendChild(div11);
+        charAvatar.appendChild(div11);
 
         // Append character 12
         const div12 = document.createElement("div");
@@ -95,10 +113,10 @@
         a12.dataset.charNumber = 11;
         div12.appendChild(a12);
         div12.classList.add("character");
-        charBox.appendChild(div12);
+        charAvatar.appendChild(div12);
       })
       .then(function () {
-        const links = document.querySelectorAll("#char-select-box div a");
+        const links = document.querySelectorAll("#char-avatar div a");
         links.forEach((link) => {
           link.addEventListener("click", getMovieInfo);
         });
@@ -107,13 +125,13 @@
         console.log("Error fetching characters:", err);
       })
       .finally(() => {
-        charBox.classList.remove("spinner");
+        charAvatar.classList.remove("spinner");
       });
   }
 
   function getMovieInfo() {
-    movieCon.innerHTML = "";
-    movieCon.classList.add("spinner");
+    movieBox.innerHTML = "";
+    movieBox.classList.add("spinner");
 
     const movieID = this.dataset.movieDetails;
     const charNumber = this.dataset.charNumber;
@@ -122,32 +140,32 @@
     div.classList.add("invisible");
     const img = document.createElement("img");
 
-    if (charPreviewOn) {
+    if (previewCharOn) {
       tl.set(div, { autoAlpha: 0 });
       div.innerHTML = "";
     }
 
     img.src = `images/preview/${charNumber}.png`;
     div.appendChild(img);
-    charPreviewOn = true;
-    charPreview.appendChild(div);
+    previewCharOn = true;
+    previewChar.appendChild(div);
 
     tl.to(div, { autoAlpha: 1, duration: 2, ease: "power2.inOut" });
 
     fetch(movieID)
       .then((response) => response.json())
       .then(function (response) {
-        movieCon.classList.remove("spinner");
-        movieCon.innerHTML = "";
-        const template = document.importNode(movieTemplate.content, true);
-        const movieBody = template.querySelector(".opening-crawl");
+        movieBox.classList.remove("spinner");
+        movieBox.innerHTML = "";
+        const template = document.importNode(movieContainer.content, true);
+        const movieBody = template.querySelector(".opening-infobody");
         const movieTitle = template.querySelector(".movie-title");
         const posterImg = template.querySelector(".poster-img");
         posterImg.src = `images/movies/${response.episode_id}.jpg`;
         movieTitle.textContent = response.title;
         movieBody.innerHTML = response.opening_crawl;
 
-        movieCon.appendChild(template);
+        movieBox.appendChild(template);
       })
       .catch((error) => {
         console.log(error);
@@ -156,6 +174,7 @@
 
   getCharacters();
 
+  // This is for the particle effects
   particlesJS("particles", {
     particles: {
       number: {
@@ -230,5 +249,44 @@
       },
     },
     retina_detect: true,
+  });
+
+  // Added GSAP animation here
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".previewChar", {
+    scrollTrigger: {
+      trigger: ".previewChar",
+      // toggleActions: "restart none restart none",
+      toggleActions: "play none none none",
+      once: true,
+    },
+    x: -100,
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+  });
+  gsap.from(".theCharacters", {
+    scrollTrigger: {
+      trigger: ".theCharacters",
+      // toggleActions: "restart none restart none",
+      toggleActions: "play none none none",
+      once: true,
+    },
+    opacity: 0,
+    duration: 5,
+    ease: "power2.out",
+  });
+  gsap.from(".movieDetail", {
+    scrollTrigger: {
+      trigger: ".movieDetail",
+      // toggleActions: "restart none restart none",
+      toggleActions: "play none none none",
+      once: true,
+    },
+    x: 100,
+    opacity: 0,
+    duration: 2,
+    ease: "power2.out",
   });
 })();
