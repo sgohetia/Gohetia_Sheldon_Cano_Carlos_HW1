@@ -61,7 +61,7 @@
           charAvatar.appendChild(div);
         });
 
-        // Fetch characters 11 and 12 (instead of page 2)
+        // Fetch characters 11 and 44 (instead of page 2)
         return Promise.all([
           fetch(`${baseUrl}/people/11/`),
           fetch(`${baseUrl}/people/44/`),
