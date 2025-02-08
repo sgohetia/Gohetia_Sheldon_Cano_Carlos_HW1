@@ -5,14 +5,18 @@ body {
 }
 
 h2 {
-  font-family: a.$body-font-family;
+  font-family: a.$hero-heading;
+  color: a.$yellow-color;
   font-size: 26px;
-  color: a.$black-color;
   margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 h3 {
-  color: white;
+  color: a.$white-color;
 }
 p {
   line-height: 24px;

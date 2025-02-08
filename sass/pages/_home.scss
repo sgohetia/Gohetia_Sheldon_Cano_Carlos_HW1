@@ -24,7 +24,7 @@ body {
 }
 
 #starwars {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(a.$black-color, 0.5);
 }
 
 a {
@@ -49,18 +49,23 @@ span {
   gap: 30px;
 
   h2 {
-    font-family: a.$hero-heading;
-    letter-spacing: 3px;
-    padding-top: 20px;
-    padding-left: 40px;
     width: 100%;
   }
+}
+
+.theCharacters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: solid 3px a.$yellow-color;
+  border-radius: 15px;
+  padding-bottom: 20px;
 }
 
 .character {
   margin-bottom: 50px;
   text-align: center;
-  background-color: #fff;
+  background-color: a.$white-color;
   width: 80px;
   height: 80px;
   border: solid 2px a.$yellow-color;
@@ -71,7 +76,7 @@ span {
   p {
     margin-top: 8px;
     font-size: 12px;
-    color: white;
+    color: a.$white-color;
   }
 }
 
@@ -82,34 +87,13 @@ span {
 }
 
 .char-selected {
-  border: solid 8px white;
+  border: solid 8px a.$white-color;
   border-radius: 8px;
 }
 
 #preview-char {
   text-align: center;
-
-  h2 {
-    font-family: a.$hero-heading;
-    letter-spacing: 3px;
-    padding-top: 20px;
-    padding-left: 40px;
-    width: 100%;
-  }
-}
-
-#movie-details-box {
-  h2 {
-    font-family: a.$hero-heading;
-    letter-spacing: 3px;
-    padding-top: 20px;
-    padding-left: 40px;
-    width: 100%;
-  }
-}
-
-#char-preview {
-  width: 85%;
+  width: 100%;
 }
 
 #info-box {
@@ -118,14 +102,12 @@ span {
   background-color: rgba(a.$black-color, 0.25);
   margin-top: 60px;
   padding: 30px;
-  border: solid 3px a.$yellow-color;
-  border-radius: 15px;
 
   p {
     font-size: 15px;
     line-height: 30px;
     margin-left: 20px;
-    color: white;
+    color: a.$white-color;
   }
 
   img {
@@ -166,7 +148,7 @@ span {
 }
 
 .howto1 {
-  padding-top: 147px;
+  padding-top: 148px;
   text-align: center;
   font-size: 40px;
   font-family: a.$hero-heading;
