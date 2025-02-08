@@ -6,15 +6,25 @@
 }
 
 .grid-con {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(a.$black-color, 0.5);
   padding-left: 72px;
   padding-right: 72px;
 }
+
 body {
-  color: a.$body-text-color;
+  color: a.$black-color;
   background-image: url(../images/bg.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#starwars {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 a {
@@ -53,9 +63,9 @@ span {
   background-color: #fff;
   width: 80px;
   height: 80px;
-  border: solid 2px #178302;
+  border: solid 2px a.$yellow-color;
   border-radius: 2px;
-  box-shadow: #fad506;
+  box-shadow: a.$yellow-color;
   transition: transform 0.3s ease, border-color 0.3s ease;
 
   p {
@@ -67,7 +77,7 @@ span {
 
 .character:hover {
   cursor: pointer;
-  border-color: #fa2206;
+  border-color: a.$red-color;
   transform: scale(1.1);
 }
 
@@ -78,6 +88,7 @@ span {
 
 #preview-char {
   text-align: center;
+
   h2 {
     font-family: a.$hero-heading;
     letter-spacing: 3px;
@@ -104,10 +115,10 @@ span {
 #info-box {
   display: flex;
   flex-direction: column;
-  background-color: rgba(22, 26, 29, 0.6);
+  background-color: rgba(a.$black-color, 0.25);
   margin-top: 60px;
   padding: 30px;
-  border: solid 3px #178302;
+  border: solid 3px a.$yellow-color;
   border-radius: 15px;
 
   p {
@@ -130,11 +141,13 @@ span {
   letter-spacing: 3px;
   font-size: 35px;
   margin-bottom: 25px;
-  color: #fad506;
+  color: a.$yellow-color;
 }
+
 .instruction {
   padding-left: 40px;
 }
+
 .movie-info {
   display: flex;
 }
@@ -151,87 +164,11 @@ span {
   font-family: a.$hero-heading;
   letter-spacing: 3px;
 }
+
 .howto1 {
   padding-top: 147px;
   text-align: center;
   font-size: 40px;
   font-family: a.$hero-heading;
   letter-spacing: 3px;
-}
-
-//AR Style
-.container {
-  padding-top: 50px;
-  position: relative;
-  width: 100%;
-  height: 100vh;
-}
-.model-title {
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-160%);
-  color: white;
-  z-index: 10;
-  font-size: 20px;
-  text-align: center;
-  font-family: a.$body-font-family;
-}
-.model-title span {
-  color: #fad506;
-}
-
-model-viewer {
-  width: auto;
-  max-width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
-  margin: 0 auto;
-}
-
-.Hotspot {
-  background: url(/images/spinner.svg) no-repeat center;
-  border: 0;
-  border-radius: 20px;
-  width: 15px;
-  height: 30px;
-}
-.Hotspot:not([data-visible]) {
-  opacity: 0;
-}
-
-.Hotspot:focus {
-  border: 4px solid #fad506;
-  height: 32px;
-  outline: none;
-  width: 32px;
-}
-.HotspotAnnotation {
-  visibility: hidden;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-  color: rgba(0, 0, 0, 0.8);
-  display: block;
-  font-family: a.$body-font-family;
-  font-size: 18px;
-  font-weight: 700;
-  left: calc(100% + 1em);
-  max-width: 300px;
-  overflow-wrap: break-word;
-  padding: 0.5em 1em;
-  position: absolute;
-  top: 10%;
-  width: max-content;
-}
-.HotspotAnnotation p {
-  color: #fad506;
-  line-height: 18px;
-  font-weight: 200;
-  text-align: center;
-  font-size: 14px;
-}
-.HotspotAnnotation h2 {
-  font-size: 18px;
-  margin-bottom: 5px;
 }
